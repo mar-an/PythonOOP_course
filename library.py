@@ -8,19 +8,21 @@ class Library:
     def displayAvialableBooks(self):
         i = 1
         print("___List of books___")
-        for books in self.avialableBooks:
-            print ("{}: {}".format(i,books))
+        for key, val in self.avialableBooks.items():
+            #print ("{}: {}".format(key, key[val]))
+            print("poz : {0}, title : {1}".format(key, val))
             i+=1
 
     def lendBook(self, book):
         if (book in self.avialableBooks):
-            self.avialableBooks.remove(book)
+            self.avialableBooks.pop(book)
             print("Book '" +book+ "' has been lend!")
         else:
             print("Sorry requested book is not aviabalable")
 
     def addBook(self, book):
-        self.avialableBooks.append(book)
+        key+=1
+        self.avialableBooks[key]=book
         print("Book '" +book+ "' has been return!")
 
 class Customer:
@@ -35,7 +37,7 @@ class Customer:
         self.book = input()
         return self.book
 
-library = Library(['Komnata Tajemnic', 'Więzien Azkabanu', 'Kamien Filozoficzny', 'Czara Ognia'])
+library = Library({'1':'Komnata Tajemnic', '2':'Więzien Azkabanu', '3':'Kamien Filozoficzny', '4':'Czara Ognia'})
 custometr = Customer()
 
 while True:
